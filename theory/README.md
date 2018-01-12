@@ -41,7 +41,7 @@ Find regexes that match the following.
 
       ab*c+d?[ef]
 
-      ![state machine](./regexStateMachine.PNG)
+      see png files
 
   Remember the ε transition can be used to move between states without
   consuming input. 
@@ -50,7 +50,7 @@ Find regexes that match the following.
   machine diagram for the lion and label the transition events that
   cause state transitions.
 
-      ![state machine](./lion.PNG)
+      see png files
 
 
 
@@ -79,7 +79,7 @@ Find regexes that match the following.
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
 
-      ![state machine]("./VT100.PNG")
+      see PNG files
 
 > If you're curious, [here are all the VT-100 escape
 > sequences](http://ascii-table.com/ansi-escape-sequences-vt-100.php).
