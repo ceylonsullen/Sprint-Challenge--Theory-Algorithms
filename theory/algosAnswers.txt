@@ -1,0 +1,58 @@
+algos solutions
+
+a) 	a = 0
+	while a < (3 * 9):
+		a = a + 9
+
+	the time complexity is O(n). the n * n in the body of the while loop cancels out the n * n in the condition of while loop
+
+b) O(log2n) because i divides by two each iteration of the loop (assuming i rounds)
+
+c) k is *8, j is *8, between them the whole thing gets a constant coefficient of 64. the loop goes to the sqrt(n)/2 which is not constant and grows as n grows. so the time complexity is O(sqrt(n)) since we can ignore coefficients, if we don't then it is 32*sqrt(n)
+
+d) nlog2(n) because j loop is linear and i loop is log2(n)
+
+e) n cubed since 3 linear loops, and the l loop is a constant loop so more precisely it might be 10n^3
+
+f)linear, one recursive call reducing bunnies by 1 each time.
+
+g) linear since it searches the last item and recurses if it is not the target value, making one recursive call per iterations down the list
+
+
+
+Exercise 2: 
+
+
+arr.length = n. j >= i, what is the maximum value of arr[j] - arr[i].
+
+loop through the array searching for maximums and recording minimums. so while looping through the array it will save:
+
+1. total minimum
+2. current maximum
+3. current minimum before last maximum.
+if a new maximum is found, it will store number 3 to equal number 1. and keep iterating
+
+in js:
+
+let totMin, curMax, curMin;
+for (let i = 0; i < arr.length; i++) {
+	const cur = arr[i];
+	if (!totMin) totMin = cur;
+	if (!curMax) curMax = cur;
+	if (!curMin) curMin = cur;
+	if (totMin > cur) totMin = cur;
+	if (curMax < cur) {
+		curMax = cur;
+		curMin = totMin;
+	}
+}
+return curMax - curMin;
+
+
+B) drop it off the the middle floor or n/2 rounded. if it is broken, divide the lower half of the building again, and drop from the center of those floors and if it is unbroken, do the same for the upper half. do this problem recursively for halves of the building until we are left with two possibilities, one floor that does and one that does not, and then only one test is needed to decide the floor f.
+
+
+Exercise III.
+a) it would form an empty array and an array that is one smaller than the previous array and continue to do that each time, so it does 2n recursive calls where n is the length of the array, so the running time is 2n
+
+b) the running time becomes nlog2n because the array size will always be cut it in half for the recursive calls while the branches double. so the size of the arrays is only halved log2n times, which for a thousand for example, is about 10, meaning it would be 10 layers of 2 recursive calls, each time with half as many iterations through the loop, averaging 1000 for each layer of calls, making it 10 thousand or nlog2n run time.
