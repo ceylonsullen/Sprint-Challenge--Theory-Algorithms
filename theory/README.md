@@ -79,7 +79,7 @@ Find regexes that match the following.
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
 
-      ![state machine](./VT100.PNG)
+      ![state machine]("./VT100.PNG")
 
 > If you're curious, [here are all the VT-100 escape
 > sequences](http://ascii-table.com/ansi-escape-sequences-vt-100.php).
