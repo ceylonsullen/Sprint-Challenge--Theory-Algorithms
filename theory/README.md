@@ -9,6 +9,8 @@ Find regexes that match the following.
     antelope
     antelopes
 
+    /antelopes?/
+
 * Regex that matches:
 
     goat
@@ -18,6 +20,8 @@ Find regexes that match the following.
 
     boat
 
+    /[gm]oat/
+
 * Regex that matches dates in YYYY-MM-DD format. This does not need to
   verify the date is correct.
 
@@ -25,6 +29,8 @@ Find regexes that match the following.
   1999-1-20
   1999-01-20
   812-2-10
+
+    /\d\d?\d?\d?-\d\d?-\d\d?/
 
 ## State Machines
 
@@ -35,12 +41,18 @@ Find regexes that match the following.
 
       ab*c+d?[ef]
 
+      ![state machine](./regexStateMachine.PNG)
+
   Remember the ε transition can be used to move between states without
   consuming input. 
 
 * A lion can be sleeping, eating, hunting, or preening. Draw a state
   machine diagram for the lion and label the transition events that
   cause state transitions.
+
+      ![state machine](./lion.PNG)
+
+
 
 * The VT-100 terminal (console) outputs text to the screen as it
   receives it over the wire. One exception is that when it receives an
@@ -49,9 +61,13 @@ Find regexes that match the following.
 
       ESC[12;45f
 
+      regex = /\e\[\d+;\d+f/
+
   moves the cursor to line 12, column 45.
 
       ESC[1m
+
+      regex = /\e\[1m/
 
   changes the font to bold.
 
@@ -62,6 +78,8 @@ Find regexes that match the following.
 
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
+
+      ![state machine](./VT100.PNG)
 
 > If you're curious, [here are all the VT-100 escape
 > sequences](http://ascii-table.com/ansi-escape-sequences-vt-100.php).
